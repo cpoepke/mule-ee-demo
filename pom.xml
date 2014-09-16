@@ -11,6 +11,7 @@
 		<module>mule-ee-bom</module>
         <module>mule-ee-parent</module>
         <module>mule-ee-common</module>
+        <module>mule-ee-service-app</module>
 	</modules>
 </project>
 
