@@ -3,21 +3,17 @@ Mule EE demo
 
 This demo shows in an integration scenario the usage of MuleESB Enterprise edition features.
 
-## Building
+## Building  
 
-Install the BOM to your local Maven repository
+Copy your muleLicenseKey.lic to 
 
-    cd mule-ee-bom
-    mvn clean install
+    common/mule-ee-license/src/test/resources   
+    
+Build the application in the root folder or execute
 
-Install the parent pom to your local Maven repository
+    ./build.sh     
 
-    cd mule-ee-parent
-    mvn clean install
-
-Build the application in the root folder
-
-    mvn clean install
+    ./build.bat
 
 ## Running
 

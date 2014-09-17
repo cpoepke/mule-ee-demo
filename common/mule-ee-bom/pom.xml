@@ -14,6 +14,9 @@
 		<mule.version>3.5.1</mule.version>
         <mule-module-apikit.version>1.4.5</mule-module-apikit.version>
 
+        <!-- Mule 3rd party dependencies -->
+        <xalan.version>2.7.1</xalan.version>
+
         <!-- for in-memory database and message queue -->
         <derby.version>10.11.1.1</derby.version>
         <activemq-all.version>5.10.0</activemq-all.version>
@@ -21,6 +24,9 @@
         <!-- utilities -->
         <commons-collections.version>3.2.1</commons-collections.version>
         <commons-lang.version>2.6</commons-lang.version>
+
+        <!-- Mule EE license for testing -->
+        <mule-ee-license.version>1.0.0-SNAPSHOT</mule-ee-license.version>
 
         <!-- for testing -->
         <junit.version>4.11</junit.version>
@@ -165,6 +171,14 @@
 				<scope>provided</scope>
 			</dependency>
 
+            <!-- Mule 3rd party dependencies -->
+            <dependency>
+                <groupId>xalan</groupId>
+                <artifactId>xalan</artifactId>
+                <version>${xalan.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
 	        <!-- for in-memory database and message queue -->
 	    	<dependency>
 	            <groupId>org.apache.derby</groupId>
@@ -187,6 +201,15 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
+            </dependency>
+
+            <!-- Mule EE license for testing -->
+            <dependency>
+                <groupId>de.codecentric.integration.license</groupId>
+                <artifactId>mule-ee-license</artifactId>
+                <version>${mule-ee-license.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
             </dependency>
 
 			<!-- for testing -->

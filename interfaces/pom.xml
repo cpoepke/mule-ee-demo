@@ -8,7 +8,6 @@
 	<name>Mule EE demo common aggregator</name>
 
 	<modules>
-		<module>mule-ee-service-app</module>
 	</modules>
 </project>
 

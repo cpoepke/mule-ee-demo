@@ -4,7 +4,14 @@ target
 
 # IDE #
 .idea
-.eclipse
+.studio
+.iml
+.classpath
+.project
+
+# Mule #
+mule-project.xml
+muleLicenseKey.lic
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

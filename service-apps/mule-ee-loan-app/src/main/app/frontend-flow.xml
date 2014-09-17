@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+    <flow name="frontend-serving-flow" doc:name="frontend-serving-flow">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="${app.port}" doc:name="HTTP"/>
+        <logger message="Serving static web content for #[message.inboundProperties.'http.request.path']" level="INFO" category="de.codecentric.integration.services.frontend" doc:name="Logger"/>
+        <ee:cache doc:name="Cache">
+            <logger message="Loading content from file into cache for #[message.inboundProperties.'http.request.path']" level="INFO" category="de.codecentric.integration.services.frontend" doc:name="Logger"/>
+            <http:static-resource-handler resourceBase="${app.home}/web" doc:name="HTTP Static Resource Handler"/>
+        </ee:cache>
+    </flow>
+ 
+</mule>
