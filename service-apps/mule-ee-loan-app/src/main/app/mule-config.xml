@@ -7,7 +7,7 @@
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
 	<spring:beans>
-		<spring:import resource="classpath:common-mule-config.xml" />
+		<spring:import resource="classpath*:common-mule-config.xml" />
         <spring:import resource="classpath:frontend-flow.xml" />
 	</spring:beans>
 

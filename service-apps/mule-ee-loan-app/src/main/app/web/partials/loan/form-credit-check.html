@@ -1,0 +1,112 @@
+
+<div ng-controller="CreditCheckCtrl">
+    <!-- SHOW ERROR/SUCCESS MESSAGES -->
+    <div id="messages"></div>
+
+
+    <form name="creditCheckForm" novalidate>
+        <!-- NAME -->
+        <div id="name-group" class="form-group" ng-class="{'has-error': !creditCheckForm.name.$valid && creditCheckForm.name.$dirty, 'has-success': creditCheckForm.name.$valid && creditCheckForm.name.$dirty}">
+            <label>Name *</label>
+            <input type="text" name="name" class="form-control" placeholder="Your name" ng-model="loan.name" ng-minlength="3" required ng-model-options="{ debounce: 500 }">
+            <div ng-show="creditCheckForm.name.$dirty && creditCheckForm.name.$valid">
+                <span ng-show="creditCheckForm.name.$error.required">Required!</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- STREET -->
+            <div id="street-group" class="form-group col-xs-9" ng-class="{'has-error': !creditCheckForm.street.$valid && creditCheckForm.street.$dirty, 'has-success': creditCheckForm.street.$valid && creditCheckForm.street.$dirty}">
+                <label>Street *</label>
+                <input type="text" name="street" class="form-control col-xs-2" placeholder="Coffee street" ng-model="loan.street" ng-minlength="3" required ng-model-options="{ debounce: 500 }">
+                <div ng-show="creditCheckForm.street.$dirty && creditCheckForm.street.$valid">
+                    <br/><span ng-show="creditCheckForm.street.$error.required">Required!</span>
+                </div>
+            </div>
+
+            <!-- HOUSE NUMBER -->
+            <div id="house-number-group" class="form-group col-xs-3" ng-class="{'has-error': !creditCheckForm.house_number.$valid && creditCheckForm.house_number.$dirty, 'has-success': creditCheckForm.house_number.$valid && creditCheckForm.house_number.$dirty}">
+                <label>House number *</label>
+                <input type="number" name="house_number" class="form-control col-xs-2" placeholder="23" ng-model="loan.house_number" min="1" max="99999" required ng-model-options="{ debounce: 500 }">
+                <div ng-show="creditCheckForm.house_number.$dirty && creditCheckForm.house_number.$valid">
+                    <span ng-show="creditCheckForm.house_number.$error.required">Required!</span>
+                    <span ng-show="creditCheckForm.house_number.$error.integer">This is not a valid house number!</span>
+                    <span ng-show="creditCheckForm.house_number.$error.min || creditCheckForm.house_number.$error.max">This is not a valid house number!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- AREA CODE -->
+            <div id="area-code-group" class="form-group col-xs-3" ng-class="{'has-error': !creditCheckForm.area_code.$valid && creditCheckForm.area_code.$dirty, 'has-success': creditCheckForm.area_code.$valid && creditCheckForm.area_code.$dirty}">
+                <label>Area code *</label>
+                <input type="number" name="area_code" class="form-control" placeholder="12345" ng-model="loan.area_code" min="10000" max="99999" required ng-model-options="{ debounce: 500 }">
+                <div ng-show="creditCheckForm.area_code.$dirty && creditCheckForm.area_code.$valid">
+                    <span ng-show="creditCheckForm.area_code.$error.required">Required!</span>
+                    <span ng-show="creditCheckForm.area_code.$error.integer">This is not a valid area code!</span>
+                    <span ng-show="creditCheckForm.area_code.$error.min || creditCheckForm.area_code.$error.max">This is not a valid area code!</span>
+                </div>
+            </div>
+
+            <!-- CITY -->
+            <div id="city-group" class="form-group col-xs-9" ng-class="{'has-error': !creditCheckForm.city.$valid && creditCheckForm.city.$dirty, 'has-success': creditCheckForm.city.$valid && creditCheckForm.city.$dirty}">
+                <label>City *</label>
+                <input type="text" name="city" class="form-control" placeholder="Coffee City" ng-model="loan.city" ng-minlength="3" required ng-model-options="{ debounce: 500 }">
+                <div ng-show="creditCheckForm.city.$dirty && creditCheckForm.city.$valid">
+                    <span ng-show="creditCheckForm.city.$error.required">Required!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- E-MAIL -->
+        <div id="email" class="form-group" ng-class="{'has-error': !creditCheckForm.email.$valid && creditCheckForm.email.$dirty, 'has-success': creditCheckForm.email.$valid && creditCheckForm.email.$dirty}">
+            <label>E-Mail *</label>
+            <input type="email" name="email" class="form-control" placeholder="you@domain.com" ng-model="loan.email" ng-minlength="3" required ng-model-options="{ debounce: 500 }">
+            <div ng-show="creditCheckForm.email.$dirty && creditCheckForm.email.$valid">
+                <span ng-show="creditCheckForm.email.$error.required">Required!</span>
+                <span ng-show="creditCheckForm.email.$error.email">This is not a valid email.</span>
+            </div>
+        </div>
+
+        <!-- BIRTHDAY -->
+        <div id="birthday-group" class="form-group" ng-class="{'has-error': !creditCheckForm.birthday.$valid && creditCheckForm.birthday.$dirty, 'has-success': creditCheckForm.birthday.$valid && creditCheckForm.birthday.$dirty}">
+            <label>Birthday *</label>
+            <div class="input-group date">
+                <input type="date" name="birthday" class="form-control" placeholder="Your birthday" ng-model="loan.birthday" required ng-model-options="{ debounce: 500 }">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-th"></i>
+                </span>
+            </div>
+            <div ng-show="creditCheckForm.birthday.$dirty && creditCheckForm.birthday.$valid">
+                <span ng-show="creditCheckForm.birthday.$error.required">Required!</span>
+                <span ng-show="creditCheckForm.birthday.$error.integer">This is not a valid date!</span>
+            </div>
+        </div>
+        <pre>form = {{loan | json}}</pre>
+        <pre>model = {{model | json}}</pre>
+        <pre>model = {{creditCheckForm}}</pre>
+
+        <p>* Required field</p>
+
+
+        <button  ng-click="submitForm(loan)">checkData</button>
+        <!--ul class="pager wizard">
+            <!--li class="previous first" style="display:none;"><a href="#">First</a></li>
+            <li class="previous"><a href="#">Previous</a></li>
+            <li class="next last" style="display:none;"><a href="#">Last</a></li-->
+            <!--li class="next"><a ui-sref="loan.completed" ng-click="submitForm()">Next</a></li>
+        </ul-->
+
+        <script>
+            $(document).ready(function () {
+
+                $('.container .input-group.date').datepicker({
+                    format: "dd.mm.yyyy",
+                    language: "de",
+                    calendarWeeks: true,
+                    autoclose: true
+                });
+            });
+        </script>
+    </form>
+</div>

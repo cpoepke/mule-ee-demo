@@ -36,7 +36,7 @@ public class LoanFrontendTest extends FunctionalTestCase {
         assertEquals(FileUtils.readFileToString(new File(home.getValue() + "/web/index.html")), reply.getPayloadAsString());
     }
 
-    protected String[] getConfigFiles() {
-        return new String[]{"common-mule-config.xml", "frontend-flow.xml"};
+    protected String getConfigFile() {
+        return "mule-config.xml";
     }
 }

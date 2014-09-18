@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.codecentric.integration.bom</groupId>
 	<artifactId>mule-ee-bom</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Mule EE demo bom</name>
 
@@ -26,7 +26,7 @@
         <commons-lang.version>2.6</commons-lang.version>
 
         <!-- Mule EE license for testing -->
-        <mule-ee-license.version>1.0.0-SNAPSHOT</mule-ee-license.version>
+        <mule-ee-license.version>0.1.0-SNAPSHOT</mule-ee-license.version>
 
         <!-- for testing -->
         <junit.version>4.11</junit.version>

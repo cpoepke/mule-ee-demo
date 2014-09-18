@@ -1,0 +1,14 @@
+<div id="loanWizard">
+    <ul class="nav nav-tabs" role="tablist" ng-controller="NavCtrl">
+        <li ng-class="{active: isActive('/loan/credit-check')}"><a ui-sref="loan.credit-check">Credit check</a></li>
+        <li ng-class="{active: isActive('/loan/completed')}"><a ui-sref="loan.completed">Finish</a></li>
+    </ul>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            </br>
+
+            <!-- our nested state views will be injected here -->
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
