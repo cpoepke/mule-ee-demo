@@ -9,9 +9,11 @@ Copy your muleLicenseKey.lic to
 
     common/mule-ee-license/src/test/resources   
     
-Build the application in the root folder or execute
+Build the application in the root folder
 
     ./build.sh     
+
+or
 
     ./build.bat
 
