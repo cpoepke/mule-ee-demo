@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>de.codecentric.integration.common</groupId>
+        <artifactId>mule-ee-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+    <groupId>de.codecentric.integration.apps</groupId>
+    <artifactId>mule-ee-JMS-scoring-service</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>mule</packaging>
+    <name>Mule EE demo JMS scoring service</name>
+
+    <properties>
+        <mule-ee-common.version>0.1.0-SNAPSHOT</mule-ee-common.version>
+    </properties>
+
+    <dependencies>
+        <!-- Share common mule app base -->
+        <dependency>
+            <groupId>de.codecentric.integration.common</groupId>
+            <artifactId>mule-ee-common</artifactId>
+            <version>${mule-ee-common.version}</version>
+        </dependency>
+
+        <!-- Mule dependencies -->
+        <dependency>
+            <groupId>org.mule.transports</groupId>
+            <artifactId>mule-transport-http</artifactId>
+        </dependency>
+    	<dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-spring-config</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    	<dependency>
+            <groupId>org.mule.transports</groupId>
+            <artifactId>mule-transport-jms</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- 3rd party dependencies -->
+    	<dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.2</version>
+        </dependency>
+    </dependencies>
+</project>
