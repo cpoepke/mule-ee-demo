@@ -1,0 +1,9 @@
+{
+	"name":"Your name",
+	"street":"Coffee street",
+	"area_code":12345,
+	"city":"Coffee City",
+	"house_number":23,
+	"email":"you@domain.com",
+	"birthday":"01.01.1970"
+}

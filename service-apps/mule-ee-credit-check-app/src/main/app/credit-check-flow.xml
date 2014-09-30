@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ajax="http://www.mulesoft.org/schema/mule/ajax" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ajax http://www.mulesoft.org/schema/mule/ajax/current/mule-ajax.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+
+    <data-mapper:config name="JSON_To_Pojo" transformationGraphPath="json_to_pojo.grf" doc:name="JSON_To_Pojo"/>
+    <data-mapper:config name="LoanModel_To_Map" transformationGraphPath="loanmodel_to_map.grf" doc:name="LoanModel_To_Map"/>
+    <data-mapper:config name="LoanModel_To_XML" transformationGraphPath="loanmodel_to_xml.grf" doc:name="LoanModel_To_XML"/>
+    <data-mapper:config name="LoanModel_To_JSON" transformationGraphPath="loanmodel_to_json.grf" doc:name="LoanModel_To_JSON"/>
+    <flow name="credit-check-service-flow" doc:name="credit-check-service-flow">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="${app.port}" doc:name="HTTP"/>
+        <logger message="Performing credit check for #[message.inboundProperties.'http.request.path'] with #[message.payload]" level="INFO" category="de.codecentric.integration.services.credit-check" doc:name="Logger"/>
+        <data-mapper:transform config-ref="JSON_To_Pojo" doc:name="JSON To Pojo"/>
+        <logger message="Mapping performed #[message.payload]" level="INFO" category="de.codecentric.integration.services.credit-check" doc:name="Logger"/>
+        <data-mapper:transform config-ref="LoanModel_To_Map" doc:name="LoanModel To Map"/>
+        <jms:outbound-endpoint queue="${app.scoring.queue}" doc:name="JMS scoring" connector-ref="jmsConnector"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>

@@ -9,6 +9,8 @@
 
 	<modules>
 		<module>mule-ee-loan-app</module>
+        <module>mule-ee-JMS-scoring-service</module>
+		<module>mule-ee-credit-check-app</module>
 	</modules>
 </project>
 

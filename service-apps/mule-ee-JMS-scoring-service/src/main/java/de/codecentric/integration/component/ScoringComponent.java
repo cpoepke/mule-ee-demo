@@ -1,5 +1,6 @@
 package de.codecentric.integration.component;
 
+import com.google.common.collect.Maps;
 import org.joda.time.DateTime;
 import org.joda.time.Years;
 
@@ -16,7 +17,7 @@ public class ScoringComponent {
 		
 		long years = Years.yearsBetween(new DateTime(dataMap.get("birthday")), new DateTime()).getYears();
 
-		Map<String, Object> returnMap = new HashMap<>();
+		Map<String, Object> returnMap = Maps.newHashMap();
 		returnMap.put("name", dataMap.get("name"));
 		returnMap.put("scoring", years);
 		return returnMap;

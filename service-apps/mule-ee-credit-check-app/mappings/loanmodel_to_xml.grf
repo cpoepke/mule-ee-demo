@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="cpoepke" created="Mon Sep 29 11:47:42 CEST 2014" description="LoanModel To XML" guiVersion="3.4.4.P" id="1411993167787" licenseCode="Unlicensed" licenseType="Unknown" modified="Mon Sep 29 11:47:42 CEST 2014" modifiedBy="cpoepke" name="LoanModel_To_XML" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="5e4f7341-f2fa-46f9-b2a4-f998fb9e2555">
+<Record fieldDelimiter="," name="LoanModel" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/areaCode" containerType="SINGLE" label="areaCode" name="areaCode" type="integer"/>
+<Field __index="1" __sourcePath="{}/object/birthday" containerType="SINGLE" label="birthday" name="birthday" type="date"/>
+<Field __index="2" __sourcePath="{}/object/city" containerType="SINGLE" label="city" name="city" type="string"/>
+<Field __index="3" __sourcePath="{}/object/email" containerType="SINGLE" label="email" name="email" type="string"/>
+<Field __index="4" __sourcePath="{}/object/houseNumber" containerType="SINGLE" label="houseNumber" name="houseNumber" type="integer"/>
+<Field __index="5" __sourcePath="{}/object/name" containerType="SINGLE" label="name" name="name" type="string"/>
+<Field __index="6" __sourcePath="{}/object/street" containerType="SINGLE" label="street" name="street" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Output" id="b4b44ec8-b29a-4b1c-a523-f133c09ce16c">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/areaCode" containerType="SINGLE" label="areaCode" name="areaCode" type="integer"/>
+<Field __index="1" __sourcePath="{}/object/birthday" containerType="SINGLE" label="birthday" name="birthday" type="date"/>
+<Field __index="2" __sourcePath="{}/object/city" containerType="SINGLE" label="city" name="city" type="string"/>
+<Field __index="3" __sourcePath="{}/object/email" containerType="SINGLE" label="email" name="email" type="string"/>
+<Field __index="4" __sourcePath="{}/object/houseNumber" containerType="SINGLE" label="houseNumber" name="houseNumber" type="integer"/>
+<Field __index="5" __sourcePath="{}/object/name" containerType="SINGLE" label="name" name="name" type="string"/>
+<Field __index="6" __sourcePath="{}/object/street" containerType="SINGLE" label="street" name="street" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:inputPayload" guiName="Pojo READER" guiX="20" guiY="20" id="BEAN_READER0" type="BEAN_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context outPort="0" sequenceField="__id" xpath=".">
+  <Mapping cloverField="areaCode" trim="true" xpath="areaCode"/>
+  <Mapping cloverField="birthday" trim="true" xpath="birthday"/>
+  <Mapping cloverField="city" trim="true" xpath="city"/>
+  <Mapping cloverField="email" trim="true" xpath="email"/>
+  <Mapping cloverField="houseNumber" trim="true" xpath="houseNumber"/>
+  <Mapping cloverField="name" trim="true" xpath="name"/>
+  <Mapping cloverField="street" trim="true" xpath="street"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JAVA]]></attr>
+<attr name="schema"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><schema-object>
+  <typed-object-ref type-ref="de.codecentric.integration.model.LoanModel"/>
+  <typed-object type="java.util.Date"/>
+  <typed-object type="de.codecentric.integration.model.LoanModel">
+    <typed-object-ref name="areaCode" type-ref="int"/>
+    <typed-object-ref name="birthday" type-ref="java.util.Date"/>
+    <typed-object-ref name="city" type-ref="java.lang.String"/>
+    <typed-object-ref name="email" type-ref="java.lang.String"/>
+    <typed-object-ref name="houseNumber" type-ref="int"/>
+    <typed-object-ref name="name" type-ref="java.lang.String"/>
+    <typed-object-ref name="street" type-ref="java.lang.String"/>
+  </typed-object>
+  <typed-object type="java.lang.String"/>
+  <typed-object type="int"/>
+</schema-object>
+]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <areaCode>$0.areaCode</areaCode>
+  <birthday>$0.birthday</birthday>
+  <city>$0.city</city>
+  <email>$0.email</email>
+  <houseNumber>$0.houseNumber</houseNumber>
+  <name>$0.name</name>
+  <street>$0.street</street>
+</object>]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'object' -&gt; 'object'" guiX="460" guiY="20" id="FOREACH_OBJECT_OBJECT" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.areaCode = input.areaCode;
+output.birthday = input.birthday;
+output.city = input.city;
+output.email = input.email;
+output.houseNumber = input.houseNumber;
+output.name = input.name;
+output.street = input.street;
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="5e4f7341-f2fa-46f9-b2a4-f998fb9e2555" outPort="Port 0 (out)" toNode="FOREACH_OBJECT_OBJECT:0"/>
+<Edge debugMode="true" fromNode="FOREACH_OBJECT_OBJECT:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="b4b44ec8-b29a-4b1c-a523-f133c09ce16c" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
+</Phase>
+</Graph>

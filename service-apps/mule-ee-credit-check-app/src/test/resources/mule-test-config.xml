@@ -7,8 +7,9 @@
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
 	<spring:beans>
-		<spring:import resource="classpath*:common-mule-config.xml" />
-        <spring:import resource="classpath:JMS-scoring-flow.xml" />
+        <spring:import resource="classpath*:common-mule-config.xml" />
+		<spring:import resource="classpath*:JMS-scoring-flow.xml" />
+		<spring:import resource="classpath:credit-check-flow.xml" />
 	</spring:beans>
 
 </mule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+
+	<spring:beans>
+		<spring:import resource="classpath*:common-mule-config.xml" />
+        <spring:import resource="classpath:credit-check-flow.xml" />
+	</spring:beans>
+    <jms:connector name="jmsConnector" specification="1.1" validateConnections="true" jndiInitialFactory="org.mule.transport.jms.JmsConnector" connectionFactoryJndiName="org.activemq.jndi.ActiveMQInitialContextFactory" embeddedMode="true" doc:name="jmsConnector"/>
+
+</mule>

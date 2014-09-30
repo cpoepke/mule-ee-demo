@@ -32,6 +32,7 @@
         <junit.version>4.11</junit.version>
         <mockobjects-core.version>0.09</mockobjects-core.version>
         <mockito-core.version>1.9.5</mockito-core.version>
+        <munit.version>3.4-M5</munit.version>
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <cxf-rt-frontend-jaxws.version>3.0.1</cxf-rt-frontend-jaxws.version>
     </properties>
@@ -111,6 +112,12 @@
 			</dependency>
 
 			<!-- Mule Modules -->
+            <dependency>
+                <groupId>org.mule.modules</groupId>
+                <artifactId>mule-module-json</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
 			<dependency>
 	            <groupId>org.mule.modules</groupId>
 	            <artifactId>mule-module-apikit</artifactId>
@@ -237,6 +244,12 @@
 				<version>${mockito-core.version}</version>
 				<scope>test</scope>
 			</dependency>
+            <dependency>
+                <groupId>org.mule.munit</groupId>
+                <artifactId>munit-runner</artifactId>
+                <version>${munit.version}</version>
+                <scope>test</scope>
+            </dependency>
 			<dependency>
 				<groupId>org.hamcrest</groupId>
 				<artifactId>hamcrest-all</artifactId>

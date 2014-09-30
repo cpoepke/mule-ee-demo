@@ -8,10 +8,10 @@
         <relativePath/>
     </parent>
     <groupId>de.codecentric.integration.apps</groupId>
-    <artifactId>mule-ee-JMS-scoring-service</artifactId>
+    <artifactId>mule-ee-credit-check-app</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>mule</packaging>
-    <name>Mule EE demo JMS scoring service</name>
+    <name>Mule EE demo credit check app</name>
 
     <properties>
         <mule-ee-common.version>0.1.0-SNAPSHOT</mule-ee-common.version>
@@ -36,21 +36,52 @@
             <scope>provided</scope>
         </dependency>
     	<dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-json</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    	<dependency>
             <groupId>org.mule.transports</groupId>
             <artifactId>mule-transport-jms</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.mulesoft.muleesb.modules</groupId>
+            <artifactId>mule-module-data-mapper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.muleesb.modules</groupId>
+            <artifactId>mule-module-boot-ee</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    	<dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-cxf</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
         <!-- 3rd party dependencies -->
     	<dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>
             <version>5.10.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- for testing -->
         <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.2</version>
+            <groupId>org.mule.munit</groupId>
+            <artifactId>munit-runner</artifactId>
         </dependency>
     </dependencies>
 </project>

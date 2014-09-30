@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import com.google.common.collect.Maps;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -16,7 +18,7 @@ public class ScoringComponentTest {
 
 	@Test
 	public void testScoring() throws ParseException {
-		Map<String, Object> dataMap = new HashMap<>();
+		Map<String, Object> dataMap = Maps.newHashMap();
         dataMap.put("name", "Max Mustermann");
         dataMap.put("email", "max@mustermann.de");
         dataMap.put("birthday", new SimpleDateFormat("dd.MM.yyyy").parse("01.01.1980"));
