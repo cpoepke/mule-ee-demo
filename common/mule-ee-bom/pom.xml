@@ -11,11 +11,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Mule -->
-		<mule.version>3.5.1</mule.version>
+		<mule.version>3.5.2</mule.version>
         <mule-module-apikit.version>1.4.5</mule-module-apikit.version>
+        <mule-module-mongo.version>3.6.0</mule-module-mongo.version>
 
         <!-- Mule 3rd party dependencies -->
         <xalan.version>2.7.1</xalan.version>
+        <joda-time.version>2.2</joda-time.version>
 
         <!-- for in-memory database and message queue -->
         <derby.version>10.11.1.1</derby.version>
@@ -143,6 +145,12 @@
 			</dependency>
             <dependency>
                 <groupId>org.mule.modules</groupId>
+                <artifactId>mule-module-mongo</artifactId>
+                <version>${mule-module-mongo.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mule.modules</groupId>
                 <artifactId>mule-module-jersey</artifactId>
                 <version>${mule.version}</version>
                 <scope>provided</scope>
@@ -184,6 +192,11 @@
                 <artifactId>xalan</artifactId>
                 <version>${xalan.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
             </dependency>
 
 	        <!-- for in-memory database and message queue -->

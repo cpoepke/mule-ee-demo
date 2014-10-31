@@ -10,11 +10,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jdkName>JavaSE-1.8</jdkName>
-        <jdk.version>1.8</jdk.version>
+        <jdkName>JavaSE-1.7</jdkName>
+        <jdk.version>1.7</jdk.version>
 
         <!-- Mule -->
-        <mule.version>3.5.1</mule.version>
+        <mule.version>3.5.2</mule.version>
 
         <!-- Mule MMC deployment plugin -->
         <muleApiUrl>http://localhost:8080/mmc/api</muleApiUrl>
@@ -86,13 +86,6 @@
         <dependency>
             <groupId>xalan</groupId>
             <artifactId>xalan</artifactId>
-        </dependency>
-
-        <!-- Mule EE license for testing -->
-        <dependency>
-            <groupId>de.codecentric.integration.license</groupId>
-            <artifactId>mule-ee-license</artifactId>
-            <type>test-jar</type>
         </dependency>
 
         <!-- for testing -->
