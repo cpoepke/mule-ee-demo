@@ -21,6 +21,7 @@
 
         <!-- for in-memory database and message queue -->
         <derby.version>10.11.1.1</derby.version>
+        <de.flapdoodle.embedmongo.version>1.11</de.flapdoodle.embedmongo.version>
         <activemq-all.version>5.10.0</activemq-all.version>
 
         <!-- utilities -->
@@ -205,6 +206,12 @@
 	            <artifactId>derby</artifactId>
 	            <version>${derby.version}</version>
 	        </dependency>
+            <dependency>
+                <groupId>de.flapdoodle.embedmongo</groupId>
+                <artifactId>de.flapdoodle.embedmongo</artifactId>
+                <version>${de.flapdoodle.embedmongo.version}</version>
+                <scope>test</scope>
+            </dependency>
 	    	<dependency>
 	            <groupId>org.apache.activemq</groupId>
 	            <artifactId>activemq-all</artifactId>
