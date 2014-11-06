@@ -146,6 +146,12 @@
 			</dependency>
             <dependency>
                 <groupId>org.mule.modules</groupId>
+                <artifactId>mule-module-devkit-support</artifactId>
+                <version>${mule.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mule.modules</groupId>
                 <artifactId>mule-module-mongo</artifactId>
                 <version>${mule-module-mongo.version}</version>
                 <scope>provided</scope>
