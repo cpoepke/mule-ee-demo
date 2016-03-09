@@ -25,7 +25,7 @@
         <activemq-all.version>5.10.0</activemq-all.version>
 
         <!-- utilities -->
-        <commons-collections.version>3.2.1</commons-collections.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
         <commons-lang.version>2.6</commons-lang.version>
 
         <!-- Mule EE license for testing -->
